@@ -10,8 +10,9 @@ datum$Treatment <- factor(datum$Treatment,levels = c("Exp 2 var L88 57 Low", "Ex
 # Stacked barplot of interode measurements at plastochron 9 for three groups
 ggplot(datum, aes(fill=Internode, y=Avg_Length, x=Treatment), group=Treatment) + 
     geom_bar(position="stack", stat="identity")+
-    scale_fill_brewer(palette="RdYlBu")+
+    scale_fill_brewer(palette="RdYlBu") +
     theme_bw(base_size = 20) +
-    ggtitle("L88-57A and Zenith Internode Development at P9*") +
-    xlab("Phaseolus vulgaris variety") + ylab("Segment Length (cm)") +
+    ggtitle("Internode Elongation: Twiner v. Shrub Morphology") +
+    ylab("Segment Length (cm)") +
+    scale_x_discrete(labels = c('L88 57\n Twiner','L88 57\n Shrub','Zenith\n Shrub'))+
     scale_y_continuous(breaks = 0:40)
