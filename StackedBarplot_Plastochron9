@@ -1,0 +1,17 @@
+library(ggplot2)
+library(RColorBrewer)
+
+datum<- read.csv("~/Library/CloudStorage/Box-Box/Onyenedum Lab/Angelique_Acevedo/Projects/2. Bean_Team (NYU)/Growth_Chambers/Official_L88-57A_Developmental_Measurements/Internode_lengths_AveragePerGroup_Plastochron9.csv", stringsAsFactors=TRUE)
+
+datum$Internode <- factor(datum$Internode,levels = c("IN9", "IN8","IN7", "IN6", "IN5", "IN4","IN3", "IN2", "IN1", "Epi", "Hyp"))
+datum$Treatment <- factor(datum$Treatment,levels = c("Exp 2 var L88 57 Low", "Exp 2 var L88 57 High","Exp 1 var Zenith"))
+
+
+# Stacked barplot of interode measurements at plastochron 9 for three groups
+ggplot(datum, aes(fill=Internode, y=Avg_Length, x=Treatment), group=Treatment) + 
+    geom_bar(position="stack", stat="identity")+
+    scale_fill_brewer(palette="RdYlBu")+
+    theme_bw(base_size = 20) +
+    ggtitle("L88-57A and Zenith Internode Development at P9*") +
+    xlab("Phaseolus vulgaris variety") + ylab("Segment Length (cm)") +
+    scale_y_continuous(breaks = 0:40)
