@@ -1,0 +1,54 @@
+#Generated with PI Joyce Onyenedum (Onyenedum Lab)
+
+library(devtools)
+library(multcompView)
+library(ggplot2)
+library(dplyr)
+library(ggpubr)
+library(plyr)
+#library("scales")
+
+#Each internode has its own .csv throughout its development
+datum <- read.csv("~/Library/CloudStorage/Box-Box/Onyenedum Lab/Angelique_Acevedo/Projects/2. Bean_Team (NYU)/Growth_Chambers/Official_L88-57A_Developmental_Measurements/*UPDATED_MANISCRIPTS_FIGS/Bar_stats/1DevHyp.csv", stringsAsFactors=TRUE)
+
+
+datum$Time_Point <- factor(datum$Time_Point,levels = c("P0", "P1", "P2","P3", "P4","P5", "P6","P7","P8","P9"))
+datum$Treatment <- factor(datum$Treatment,levels = c("Exp 2 var L88 57 Low", "Exp 2 var L88 57 High", "Zenith"))
+datum <- na.omit (datum)
+
+#Calculate summary statistics
+data_summary <- function(data, varname, groupnames){
+  require(plyr)
+  summary_func <- function(x, col){
+    c(mean = mean(x[[col]], na.rm=T),
+      sd = sd(x[[col]], na.rm=T),
+      se = sqrt(var(x[[col]])/length(x[[col]])))
+  }
+  data_sum<-ddply(data, groupnames, .fun=summary_func,
+                  varname)
+  data_sum <- rename(data_sum, c("mean" = varname))
+  return(data_sum)
+}
+
+#Generate line plot with SE bars at each internode 
+datum<- na.omit (datum)
+head(datum$Length)
+df3 <- data_summary(datum, varname="Length", groupnames=c("Treatment", "Time_Point"))
+
+pd <- position_dodge(0.3) 
+
+p<- ggplot(df3, aes(x=Time_Point, y= Length, colour=Treatment, group=Treatment)) + 
+  geom_errorbar(aes(ymin= Length-se, ymax= Length+se), colour="black", width=.1, position=pd) +
+  geom_line(position=pd) +
+  geom_point(position=pd, size=3) + 
+  xlab("Plastochron") +
+  ylab("Segment Length (cm)") +
+  ggtitle("Hypocotyl Elongation")  + theme(plot.title = element_text(size = 20), 
+                             axis.text.x = element_text(size= 12), 
+                             axis.text.y = element_text(size = 12), 
+                             axis.title.x = element_text(size = 15),  
+                             axis.title.y= element_text(size = 15), legend.position = "top") + theme_bw(base_size = 20) +
+ylim(0,10)
+
+p<- change_palette(p, c("#648FFF", "#EC632B", "#73C956"))
+p
