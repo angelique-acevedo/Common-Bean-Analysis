@@ -1,5 +1,9 @@
 #This script was used to compare the significance of corresponding internode measurements of three habit groups at plastochron 9 using a letter display. Significance was tested using an ANOVA and Tukey test. 
 
+library(devtools)
+library(multcompView)
+library(dplyr)
+
 datum <- read.csv("~/Library)
 
 #RemoveNAs from dataset
