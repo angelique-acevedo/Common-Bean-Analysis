@@ -1,6 +1,7 @@
 #Generated with PI Joyce Onyenedum (Onyenedum Lab)
-
-library(devtools)
+#This script is generated to produce linegraphs displaying three light treatment groups from plastochron stage 0 to 9. A line graph for each internode development was made individually.  
+l
+ibrary(devtools)
 library(multcompView)
 library(ggplot2)
 library(dplyr)
@@ -9,7 +10,7 @@ library(plyr)
 #library("scales")
 
 #Each internode has its own .csv throughout its development
-datum <- read.csv("~/Library/CloudStorage/Box-Box/Onyenedum Lab/Angelique_Acevedo/Projects/2. Bean_Team (NYU)/Growth_Chambers/Official_L88-57A_Developmental_Measurements/*UPDATED_MANISCRIPTS_FIGS/Bar_stats/1DevHyp.csv", stringsAsFactors=TRUE)
+datum <- read.csv("~/Library/)
 
 
 datum$Time_Point <- factor(datum$Time_Point,levels = c("P0", "P1", "P2","P3", "P4","P5", "P6","P7","P8","P9"))
