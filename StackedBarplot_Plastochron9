@@ -1,7 +1,9 @@
+#This code was used to generate a stacked barplot illustrating the internode measurements for L88-shrub, zenith shrubs, and Zenith plants at plastochron 9. 
+
 library(ggplot2)
 library(RColorBrewer)
 
-datum<- read.csv("~/Library/CloudStorage/Box-Box/Onyenedum Lab/Angelique_Acevedo/Projects/2. Bean_Team (NYU)/Growth_Chambers/Official_L88-57A_Developmental_Measurements/Internode_lengths_AveragePerGroup_Plastochron9.csv", stringsAsFactors=TRUE)
+datum<- read.csv("~/Desktop)
 
 datum$Internode <- factor(datum$Internode,levels = c("IN9", "IN8","IN7", "IN6", "IN5", "IN4","IN3", "IN2", "IN1", "Epi", "Hyp"))
 datum$Treatment <- factor(datum$Treatment,levels = c("Exp 2 var L88 57 Low", "Exp 2 var L88 57 High","Exp 1 var Zenith"))
