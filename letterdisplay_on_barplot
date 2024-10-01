@@ -1,13 +1,16 @@
-datum<- read.csv("~/Library/CloudStorage/Box-Box/Onyenedum Lab/Angelique_Acevedo/Projects/2. Bean_Team (NYU)/Growth_Chambers/Official_L88-57A_Developmental_Measurements/*UPDATED_MANISCRIPTS_FIGS/Internode_lengths_FullDatastet_Plastochron9.csv", stringsAsFactors=TRUE)
+#This script was used to compare the significance of corresponding internode measurements of three habit groups at plastochron 9 using a letter display. Significance was tested using an ANOVA and Tukey test. 
 
-#RemoveNAs 
+datum <- read.csv("~/Library)
+
+#RemoveNAs from dataset
 datum <- na.omit(datum)
 
-#Combine two zenith labels and will change which internode being tested
+#Combine two Zenith labels originally given different names.  
 datum$Treatment <- ifelse(datum$Treatment %in% c("Exp 1 var Zenith 1", "Zenith"), "Zenith", datum$Treatment)
+#Specifies the internode being compared across the three light treatments. 
 subset<- subset(datum, Internode == "IN9") 
 
-#ANOVA
+#ANOVA test across light treatment groups
 anova <- aov(Length ~ Treatment, data = subset)
 summary(anova)
 
@@ -15,6 +18,6 @@ summary(anova)
 tukey <- TukeyHSD(anova)
 print(tukey)
 
-# compact letter display
+# Generate the compact letters to display
 cld <- multcompLetters4(anova, tukey)
 print(cld)
