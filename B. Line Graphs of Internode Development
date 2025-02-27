@@ -14,7 +14,7 @@ datum <- read.csv("~/Library/)
 
 
 datum$Time_Point <- factor(datum$Time_Point,levels = c("P0", "P1", "P2","P3", "P4","P5", "P6","P7","P8","P9"))
-datum$Treatment <- factor(datum$Treatment,levels = c("Exp 2 var L88 57 Low", "Exp 2 var L88 57 High", "Zenith"))
+datum$Treatment <- factor(datum$Treatment,levels = c("L88 57 Low Light", "L88 57 High Light", "Zenith Low Light"))
 datum <- na.omit (datum)
 
 #Calculate summary statistics
@@ -34,11 +34,11 @@ data_summary <- function(data, varname, groupnames){
 #Generate line plot with SE bars at each internode 
 datum<- na.omit (datum)
 head(datum$Length)
-df3 <- data_summary(datum, varname="Length", groupnames=c("Treatment", "Time_Point"))
+df3 <- data_summary(datum, varname="Length", groupnames=c("Treatment", "Plastochron"))
 
 pd <- position_dodge(0.3) 
 
-p<- ggplot(df3, aes(x=Time_Point, y= Length, colour=Treatment, group=Treatment)) + 
+p<- ggplot(df3, aes(x=Plastochron, y= Length, colour=Treatment, group=Treatment)) + 
   geom_errorbar(aes(ymin= Length-se, ymax= Length+se), colour="black", width=.1, position=pd) +
   geom_line(position=pd) +
   geom_point(position=pd, size=3) + 
