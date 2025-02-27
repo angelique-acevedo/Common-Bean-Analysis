@@ -9,7 +9,7 @@ library(ggpubr)
 library(plyr)
 #library("scales")
 
-#Each internode has its own .csv throughout its development
+#Each internode has its own .csv throughout its development, however the file provided is a composite of all internode development. To generate the islated graphs below, we seperated each internode into its own .csv file but with the same formatting as the one in the composite file
 datum <- read.csv("~/Library/)
 
 
