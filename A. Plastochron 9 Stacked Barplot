@@ -6,7 +6,7 @@ library(RColorBrewer)
 datum<- read.csv("~/Desktop)
 
 datum$Internode <- factor(datum$Internode,levels = c("IN9", "IN8","IN7", "IN6", "IN5", "IN4","IN3", "IN2", "IN1", "Epi", "Hyp"))
-datum$Treatment <- factor(datum$Treatment,levels = c("Exp 2 var L88 57 Low", "Exp 2 var L88 57 High","Exp 1 var Zenith"))
+datum$Treatment <- factor(datum$Treatment,levels = c("L88 57 Low Light", "L88 57 High Light","Zenith Low Light"))
 
 
 # Stacked barplot of interode measurements at plastochron 9 for three groups
