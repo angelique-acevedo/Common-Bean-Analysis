@@ -9,8 +9,7 @@ datum <- read.csv("~/Library)
 #RemoveNAs from dataset
 datum <- na.omit(datum)
 
-#Combine two Zenith labels originally given different names.  
-#datum$Treatment <- ifelse(datum$Treatment %in% c("Exp 1 var Zenith 1", "Zenith"), "Zenith", datum$Treatment)
+
 #Specifies the internode being compared across the three light treatments. 
 subset<- subset(datum, Internode == "IN9") 
 
