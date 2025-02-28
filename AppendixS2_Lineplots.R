@@ -10,13 +10,14 @@ library(plyr)
 #library("scales")
 
 #Import composite dataset
-datum <- read.csv("~/Library/)
+datum <- read.csv("~/Downloads/RawMeasurements_InternodeLengths_allStages.csv", stringsAsFactors=TRUE)
 
 #Use the function below to filter the composite dataset and generate a line graph of the segment of your choice. 
-datum1<- subset(datum, Segment== "IN9") 
+
+datum1 <- datum[datum$Segment == "IN1", ]
 
 #Functions below are used to organize dataset into 
-datum1$Time_Point <- factor(datum1$Time_Point,levels = c("P0", "P1", "P2","P3", "P4","P5", "P6","P7","P8","P9"))
+datum1$Plastochron <- factor(datum1$Plastochron,levels = c("P0", "P1", "P2","P3", "P4","P5", "P6","P7","P8","P9"))
 datum1$Treatment <- factor(datum1$Treatment,levels = c("L88 57 Low Light", "L88 57 High Light", "Zenith Low Light"))
 datum1 <- na.omit (datum1)
 
