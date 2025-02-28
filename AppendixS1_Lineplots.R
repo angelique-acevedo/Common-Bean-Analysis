@@ -8,10 +8,10 @@ library(ggpubr)
 library(plyr)
 
 #Import composite dataset
-datum <- read.csv("~/Downloads/RawMeasurements_SegmentLengths_allStages.csv", stringsAsFactors=TRUE)
+datum <- read.csv("~/Downloads/InternodeLengths_allStages.csv", stringsAsFactors=TRUE)
 
 #Use the function below to filter the composite dataset and generate a line graph of the segment of your choice. 
-#'Total' variable used to generate total height graph
+#'Total' variable used to generate total height graph 
 datum1 <- datum[datum$Segment == "IN1", ]
 
 #Functions below are used to organize dataset into 
@@ -53,6 +53,7 @@ p<- ggplot(df3, aes(x=Plastochron, y= Length, colour=Treatment, group=Treatment)
                              axis.title.x = element_text(size = 15),  
                              axis.title.y= element_text(size = 15), legend.position = "top") + theme_bw(base_size = 20) +
 ylim(0,10)
+#ylim (0,40) ##IMPORTANT: Use this ylim for the total height graph
 
 #Set color scheme for three treatment groups 
 p<- change_palette(p, c("#648FFF", "#EC632B", "#73C956"))
