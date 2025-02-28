@@ -6,9 +6,9 @@ library(RColorBrewer)
 
 #Load dataset
 datum<- read.csv("~/Downloads/Internode_lengths_AveragePerGroup_Stage5.csv", stringsAsFactors=TRUE)
-
+View(datum)
 #Organize the order in which the internodes/segments (IN9:HYP) appear on the barplot using the factor function below
-datum$Internode <- factor(datum$Internode,levels = c("IN9", "IN8","IN7", "IN6", "IN5", "IN4","IN3", "IN2", "IN1", "Epi", "Hyp"))
+datum$Segment <- factor(datum$Segment,levels = c("IN9", "IN8","IN7", "IN6", "IN5", "IN4","IN3", "IN2", "IN1", "Epi", "Hyp"))
 datum$Treatment <- factor(datum$Treatment,levels = c("L88 57 Low Light", "L88 57 High Light","Zenith Low Light"))
 
 
