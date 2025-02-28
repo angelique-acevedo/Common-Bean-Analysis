@@ -11,7 +11,7 @@ library(plyr)
 datum <- read.csv("~/Downloads/RawMeasurements_SegmentLengths_allStages.csv", stringsAsFactors=TRUE)
 
 #Use the function below to filter the composite dataset and generate a line graph of the segment of your choice. 
-
+#'Total' variable used to generate total height graph
 datum1 <- datum[datum$Segment == "IN1", ]
 
 #Functions below are used to organize dataset into 
