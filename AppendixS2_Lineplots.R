@@ -1,5 +1,5 @@
 #Generated with Dr. Joyce Onyenedum (Onyenedum Lab)
-#DESCRIPTION: This script is generated to produce linegraphs with standard error bars tracking internode development in Appendix S2 of Onyenedum el al. 2025. 
+##DESCRIPTION: This script is generated to produce linegraphs with standard error bars tracking internode development in Appendix S2 of Onyenedum et al. 2025. American Journal of Botany. 
 
 ibrary(devtools)
 library(multcompView)
