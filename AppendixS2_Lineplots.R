@@ -1,16 +1,14 @@
 #Generated with Dr. Joyce Onyenedum (Onyenedum Lab)
 ##DESCRIPTION: This script is generated to produce linegraphs with standard error bars tracking internode development in Appendix S2 of Onyenedum et al. 2025. American Journal of Botany. 
 
-ibrary(devtools)
+library(devtools)
 library(multcompView)
 library(ggplot2)
-library(dplyr)
 library(ggpubr)
 library(plyr)
-#library("scales")
 
 #Import composite dataset
-datum <- read.csv("~/Downloads/RawMeasurements_InternodeLengths_allStages.csv", stringsAsFactors=TRUE)
+datum <- read.csv("~/Downloads/RawMeasurements_SegmentLengths_allStages.csv", stringsAsFactors=TRUE)
 
 #Use the function below to filter the composite dataset and generate a line graph of the segment of your choice. 
 
@@ -49,7 +47,7 @@ p<- ggplot(df3, aes(x=Plastochron, y= Length, colour=Treatment, group=Treatment)
   geom_point(position=pd, size=3) + 
   xlab("Plastochron") +
   ylab("Segment Length (cm)") +
-  ggtitle("Hypocotyl Elongation")  + theme(plot.title = element_text(size = 20), 
+  ggtitle("Internode 1 Elongation")  + theme(plot.title = element_text(size = 20), 
                              axis.text.x = element_text(size= 12), 
                              axis.text.y = element_text(size = 12), 
                              axis.title.x = element_text(size = 15),  
