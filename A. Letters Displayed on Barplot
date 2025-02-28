@@ -1,16 +1,15 @@
-#This script was used to compare the significance of corresponding internode measurements of three habit groups at plastochron 9 using a letter display. Significance was tested using an ANOVA and Tukey test. 
-
+## DESCRIPTION: This file was used to generate ANOVA letters detailing the degrees of difference between L88 57 High Light, L88 57 Low Light, and Zenith Low Light segments in Figure 8E of Onyenedum et al. 2025.
 library(devtools)
 library(multcompView)
 library(dplyr)
 
-datum <- read.csv("~/Library)
+datum <- read.csv("~/Downloads/Internode_length_Plastochron9.csv", stringsAsFactors=TRUE)
 
 #RemoveNAs from dataset
 datum <- na.omit(datum)
 
-
-#Specifies the internode being compared across the three light treatments. 
+#NOTE: The file listed contains multiple internodes/segments (Hyp:IN9) 
+##Adjust the line of script below to get the ANOVA letter corresponding to the segment of your choice. 
 subset<- subset(datum, Internode == "IN9") 
 
 #ANOVA test across light treatment groups
