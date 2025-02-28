@@ -3,6 +3,7 @@ library(devtools)
 library(multcompView)
 library(dplyr)
 
+#Read in the data, this file included all segment measurements for plastochron 9
 datum <- read.csv("~/Downloads/Internode_length_Plastochron9.csv", stringsAsFactors=TRUE)
 
 #RemoveNAs from dataset
